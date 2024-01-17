@@ -7123,6 +7123,7 @@ bdev_io_update_io_stat(struct spdk_bdev_io *bdev_io, uint64_t tsc_diff)
 				   __itt_metadata_u64, 5, data);
 
 		memcpy(prev_stat, io_stat, sizeof(struct spdk_bdev_io_stat));
+		prev_stat->io_error = NULL;
 		bdev_io->internal.ch->start_tsc = now_tsc;
 	}
 #endif
